@@ -2,7 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const { PORT } = require("./config/serverConfig");
 
-const { sendBasicEmail } = require("./services/email-service");
+const cron = require("node-cron");
+// const { sendBasicEmail } = require("./services/email-service");
 
 const setupAndStartServer = () => {
   const app = express();
@@ -18,6 +19,11 @@ const setupAndStartServer = () => {
     //   "Congratulations! You're Selected for the Software Tester Position",
     //   "Hey how are you doing? I hope you are having a great day!"
     // );
+
+    // cron job
+    // cron.schedule("*/30 * * * *", () => {
+    //   console.log("🕒 Cron job running every 30 minutes");
+    // });
   });
 };
 

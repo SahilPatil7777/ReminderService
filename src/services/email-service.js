@@ -1,5 +1,6 @@
 const sender = require("../config/emailConfig");
 
+// email service to send basic emails
 const sendBasicEmail = async (mailFrom, mailTo, mailSubject, mailBody) => {
   try {
     const response = await sender.sendMail({
