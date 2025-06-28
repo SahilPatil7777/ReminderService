@@ -34,7 +34,7 @@ const updateTicket = async (ticketId, data) => {
   } catch (error) {
     console.log(error);
   }
-};  
+};
 
 const createNofication = async (data) => {
   try {
@@ -45,9 +45,26 @@ const createNofication = async (data) => {
   }
 };
 
+const subscribeEvents = async (payload) => {
+  let service = payload.service;
+  let data = payload.data;
+  switch (service) {
+    case "CREATE_TICKET":
+      await createNofication(data);
+      break;
+    case "SEND_BASIC_MAIL":
+      await sendBasicEmail(data);
+      break;
+    default:
+      console.log("No service found");
+      break;
+  }
+};
+
 module.exports = {
   sendBasicEmail,
   fetchPendingEmails,
   createNofication,
   updateTicket,
+  subscribeEvents,
 };

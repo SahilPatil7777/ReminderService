@@ -18,7 +18,7 @@ const setupJobs = () => {
             console.log(err);
           } else {
             console.log(data);
-            await emailService.updateTicket(email.id, { status: "SUCCESS" } );
+            await emailService.updateTicket(email.id, { status: "SUCCESS" });
           }
         }
       );
